@@ -11,18 +11,6 @@ export const createUserFormValidators = {
   role: role => !!role
 }
 
-export const surveyPersonalFormValidators = {
-  company: () => true,
-  email: email => validator.isEmail(email),
-  externalId: id => id && id.length > 1,
-  gender: gender => gender === 'M' || gender === 'F',
-  // Allow spaces and hyphens for names
-  firstName: (name = '') => isValidName(name),
-  lastName: (name = '') => isValidName(name),
-  title: () => true,
-  phone: phone => validator.isMobilePhone(phone, 'en-US')
-}
-
 export const authValidators = {
   email: email => (email && !validator.isEmail(email) ? 'Not a valid email address' : null),
   firstName: name => (!isValidName(name) ? 'Not a valid first name' : null),
